@@ -1,4 +1,4 @@
-package conjuntodisjunto;
+package br.ufc.quixada.eda.conjuntodisjunto;
 
 public class ConjuntoDisjunto {
 	private int pai[] = null;

@@ -1,4 +1,4 @@
-package grafo;
+package br.ufc.quixada.eda.grafo;
 
 public class Grafo {
 	// ##### Atributos #####

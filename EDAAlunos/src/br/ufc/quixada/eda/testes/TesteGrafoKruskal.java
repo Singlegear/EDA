@@ -4,9 +4,9 @@ package br.ufc.quixada.eda.testes;
 import java.io.IOException;
 import java.util.List;
 
-import algoritimos.ArvoreGeradoraMinima;
-import grafo.Aresta;
-import grafo.Grafo;
+import br.ufc.quixada.eda.algoritimos.ArvoreGeradoraMinima;
+import br.ufc.quixada.eda.grafo.Aresta;
+import br.ufc.quixada.eda.grafo.Grafo;
 import br.ufc.quixada.eda.util.CriarInstancia;
 import br.ufc.quixada.eda.util.EDAConstants;
 import br.ufc.quixada.eda.util.EDAUtil;

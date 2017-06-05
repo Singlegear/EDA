@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import grafo.Aresta;
-import grafo.Grafo;
+import br.ufc.quixada.eda.grafo.Aresta;
+import br.ufc.quixada.eda.grafo.Grafo;
 
 public class EDAUtil {
 	/**

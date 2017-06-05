@@ -1,12 +1,12 @@
-package algoritimos;
+package br.ufc.quixada.eda.algoritimos;
 // Luis Henrique 
 // Clayton
 import java.util.ArrayList;
 import java.util.List;
 
-import conjuntodisjunto.ConjuntoDisjunto;
-import grafo.Aresta;
-import grafo.Grafo;
+import br.ufc.quixada.eda.conjuntodisjunto.ConjuntoDisjunto;
+import br.ufc.quixada.eda.grafo.Aresta;
+import br.ufc.quixada.eda.grafo.Grafo;
 
 public class ArvoreGeradoraMinima {
 	
