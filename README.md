@@ -1,3 +1,3 @@
 # EDA
-Estrutura de Dados Avançados
+Estrutura de Dados Avançada
 
