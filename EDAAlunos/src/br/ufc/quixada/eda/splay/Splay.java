@@ -63,11 +63,11 @@ public class Splay <E>{
 			if(raiz == null)
 				return new No<E>(chave, object);
 			else if(raiz.getChave() > chave){
-				raiz.setEsq(inserir(raiz.getEsq(), chave, object));
+				raiz.setEsquerda(inserir(raiz.getEsquerda(), chave, object));
 			}else if(raiz.getChave() < chave){
-				raiz.setDir(inserir(raiz.getDir(), chave, object));
+				raiz.setDireita(inserir(raiz.getDireita(), chave, object));
 			}
-			raiz = sPlay(raiz, chave);
+			raiz = splay(raiz, chave);
 			return raiz;
 		}
 		
