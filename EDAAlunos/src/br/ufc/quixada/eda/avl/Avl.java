@@ -1,12 +1,12 @@
 package br.ufc.quixada.eda.avl;
 
-public class Avl {
+public class Avl <E>{
 	
 	//###### Atributos #######
-	private NoAvl raiz = null;
+	private NoAvl<?> raiz = null;
 	
 	//###### Metodos Auxiliares ######
-	private int altura(NoAvl no){
+	private int altura(NoAvl<?> no){
 		if(no == null)
 			return -1;
 		return no.getAltura();
@@ -19,43 +19,43 @@ public class Avl {
 	}
 	
 	//###### Metodos das Rotacoes ######
-	private NoAvl rotacaoDireita(NoAvl noPai){
-		NoAvl novoNoPai = noPai.getEsquerda();
+	private NoAvl<?> rotacaoDireita(NoAvl<?> noPai){
+		NoAvl<?> novoNoPai = noPai.getEsquerda();
 		noPai.setEsquerda(novoNoPai.getDireita());
 		novoNoPai.setDireita(noPai);
 		noPai.setAltura(max(altura(noPai.getDireita()), altura(noPai.getEsquerda())) + 1);
 		novoNoPai.setAltura(max(altura(novoNoPai.getDireita()), altura(novoNoPai.getEsquerda())) + 1);
 		return novoNoPai;
 	}
-	private NoAvl rotacaoEsquerda(NoAvl noPai){
-		NoAvl novoNoPai = noPai.getDireita();
+	private NoAvl<?> rotacaoEsquerda(NoAvl<?> noPai){
+		NoAvl<?> novoNoPai = noPai.getDireita();
 		noPai.setDireita(novoNoPai.getEsquerda());
 		novoNoPai.setEsquerda(noPai);
 		noPai.setAltura(max(altura(noPai.getDireita()), altura(noPai.getEsquerda())) + 1);
 		novoNoPai.setAltura(max(altura(novoNoPai.getDireita()), altura(novoNoPai.getEsquerda())) + 1);
 		return novoNoPai;
 	}
-	private NoAvl rotacaoDuplaDireita(NoAvl noPai){
+	private NoAvl<?> rotacaoDuplaDireita(NoAvl<?> noPai){
 		noPai.setEsquerda(rotacaoEsquerda(noPai.getEsquerda()));
 		return rotacaoDireita(noPai);
 	}
-	private NoAvl rotacaoDuplaEsquerda(NoAvl noPai){
+	private NoAvl<?> rotacaoDuplaEsquerda(NoAvl<?> noPai){
 		noPai.setDireita(rotacaoDireita(noPai.getDireita()));
 		return rotacaoEsquerda(noPai);
 	}
 	
 	//###### Metodos de Insercao ######
-	public void inserir(int chave){
-		this.raiz = inserir(this.raiz, chave);
+	public void inserir(int chave, E objeto){
+		this.raiz = inserir(this.raiz, chave, objeto);
 	}
+
 	
-	
-	private NoAvl inserir(NoAvl raiz, int chave){
+	private NoAvl<?> inserir(NoAvl<?> raiz, int chave, E objeto){
 		if(raiz == null){
-			NoAvl no = new NoAvl(chave);
+			NoAvl<?> no = new NoAvl<Object>(chave, objeto);
 			return no;
 		}else if(raiz.getChave() > chave){
-			raiz.setEsquerda(inserir(raiz.getEsquerda(), chave));
+			raiz.setEsquerda(inserir(raiz.getEsquerda(), chave, objeto));
 			if((raiz.getEsquerda().getAltura() - raiz.getDireita().getAltura()) == 2){
 				if(raiz.getEsquerda().getEsquerda().getAltura() > raiz.getEsquerda().getDireita().getAltura()){
 					raiz = rotacaoDireita(raiz);
@@ -64,7 +64,7 @@ public class Avl {
 				}
 			}
 		}else if(raiz.getChave() < chave){
-			raiz.setDireita(inserir(raiz.getDireita(), chave));
+			raiz.setDireita(inserir(raiz.getDireita(), chave, objeto));
 			if((raiz.getDireita().getAltura() - raiz.getEsquerda().getAltura()) == 2){
 				if(raiz.getDireita().getDireita().getAltura() > raiz.getDireita().getEsquerda().getAltura()){
 					raiz = rotacaoEsquerda(raiz);
