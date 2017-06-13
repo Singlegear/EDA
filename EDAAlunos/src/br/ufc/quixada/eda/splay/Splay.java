@@ -55,29 +55,20 @@ public class Splay <E>{
 			else
 				return null;
 		}
-		public No<?> inserir(int chave, E objeto){
-			insert(chave, objeto);
-			return raiz = splay(raiz, chave);
+		public void inserir(int chave, E object){
+			raiz = inserir(raiz, chave, object);
 		}
-		private void insert(int chave, E objeto){
+		
+		private No<?> inserir(No<?> raiz, int chave, E object){
 			if(raiz == null)
-				raiz = new No<Object>(chave, objeto);
-			
-			raiz = splay(raiz, chave);
-			
-			if(raiz.getChave() == chave)
-				return;
-			
-			No<?> no = new No<Object>(chave, objeto);
-			if(raiz.getChave() > chave){
-				no.setEsquerda(raiz.getEsquerda());
-				no.setDireita(raiz);
-				raiz.setEsquerda(null);
-			}else{
-				no.setDireita(raiz.getDireita());
-				no.setEsquerda(raiz);
-				raiz.setDireita(null);
+				return new No<E>(chave, object);
+			else if(raiz.getChave() > chave){
+				raiz.setEsq(inserir(raiz.getEsq(), chave, object));
+			}else if(raiz.getChave() < chave){
+				raiz.setDir(inserir(raiz.getDir(), chave, object));
 			}
+			raiz = sPlay(raiz, chave);
+			return raiz;
 		}
 		
 		public No<?> getRaiz(){
