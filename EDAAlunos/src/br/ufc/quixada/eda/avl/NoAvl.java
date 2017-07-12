@@ -3,10 +3,11 @@ package br.ufc.quixada.eda.avl;
 public class NoAvl <E>{
 	
 	private NoAvl<?> esquerda, direita;
-	private int altura, chave;
+	private int altura;
 	private E objeto;
+	private String chave;
 	
-	public NoAvl(int chave, E objeto){
+	public NoAvl(String chave, E objeto){
 		this.esquerda = null;
 		this.direita = null;
 		this.altura = 1;
@@ -38,11 +39,11 @@ public class NoAvl <E>{
 		this.altura = altura;
 	}
 
-	public int getChave() {
+	public String getChave() {
 		return chave;
 	}
 
-	public void setChave(int chave) {
+	public void setChave(String chave) {
 		this.chave = chave;
 	}
 
